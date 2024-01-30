@@ -92,11 +92,15 @@ function Saptrishi() {
 
   const [popOver, setPopOver] = useState(null);
 
-  const popOverTimer = () => {
-    // setTimeout(() => {
-    //   setPopOver(null)
-    // }, 10000)
-  };
+  useEffect(() => {
+    const timeoutID = setTimeout(() => {
+      setPopOver(null)
+    }, 4000)
+
+    return () => {
+      clearTimeout(timeoutID)
+    }
+  }, [popOver]);
 
   return (
     <>
